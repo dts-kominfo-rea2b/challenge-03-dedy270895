@@ -1,6 +1,5 @@
 // ! JANGAN DIMOFIDIKASI
-const dataBelanjaan = [
-  {
+const dataBelanjaan = [{
     id: "D-10001",
     nama: "Minyak Goreng Delima",
     harga: 25000,
@@ -21,10 +20,23 @@ const dataBelanjaan = [
 ];
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const listBelanjaan = null;
+const listBelanjaan = (x) => {
+  let datanya = [];
+  for (const element of x) {
+    let z = "- " + element["nama"] + " x " + element["kuantitas"];
+    datanya.push(z);
+  }
+  return datanya;
+}
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const totalBelanjaan = null;
+const totalBelanjaan = function(x){
+  let total = 0;
+  for(element of x){
+    total = total + (element["harga"] * element["kuantitas"]);
+  }
+  return total;
+};
 
 // ! JANGAN DIMODIFIKASI
 const main = () => {
@@ -33,7 +45,7 @@ const main = () => {
   console.log("Belanjaan Anda adalah:");
   console.log(listBelanjaan?.(dataBelanjaan)?.join("\n"));
   console.log(
-    "\nTotal Belanjaan Anda adalah Rp. " + totalBelanjaan?.(dataBelanjaan)
+    "\nTotal Belanjaan Anda adalah Rp. " + totalBelanjaan ?.(dataBelanjaan)
   );
 };
 
